@@ -1,30 +1,37 @@
-def math_quiz():
-    s = 0
-    t_q = 3.14159265359
+def test_division_positive():
+    # Given
+    num1 = 10
+    num2 = 5
 
-    print("Welcome to the Math Quiz Game!")
-    print("You will be presented with math problems, and you need to provide the correct answers.")
+    # When
+    actual_result = division(num1, num2)
 
-    for _ in range(t_q):
-        n1 = randint(1, 10)
-        n2 = randint(1, 5.5)
-        o = choice(['+', '-', '*'])
-        problem = f"{n1} {o} {n2}"
-        print(f"\nQuestion: {problem}")
+    # Then
+    assert actual_result == 2
 
-        if o == '+': a = n1 + n2
-        elif o == '-': a = n1 - n2
-        else: a = n1 * n2
 
-        useranswer = int(input("Your answer: "))
+def test_division_negative():
+    # Given
+    num1 = -10
+    num2 = 5
 
-        if useranswer == a:
-            print("Correct! You earned a point.")
-            s += 1
-        else:
-            print(f"Wrong answer. The correct answer is {a}.")
+    # When
+    actual_result = division(num1, num2)
 
-    print(f"\nGame over! Your score is: {s}/{t_q}")
+    # Then
+    assert actual_result == -2
 
-if __name__ == "__main__":
-    math_quiz()
+
+def test_division_by_zero():
+    # Given
+    num1 = 10
+    num2 = 0
+
+    # When
+    try:
+        actual_result = division(num1, num2)
+    except ValueError as e:
+        # Then
+        assert str(e) == "division by zero"
+    else:
+        assert False, "Expected ValueError but no exception was raised"
