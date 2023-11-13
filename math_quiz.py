@@ -1,46 +1,46 @@
 import random
 
+def random_problem():
+    num1 = random.randint(1, 10)
+    num2 = random.randint(1, 5)
+    op = random.choice(['+', '-', '*','/'])
+     
+    if op == '+':
+        problem = f"{num1} + {num2}"
+        answer = num1 + num2
+    elif op == '-':
+        problem = f"{num1} - {num2}"
+        answer = num1 - num2
+    elif op == '*':
+        while num2 == 0 or num1 % num2 != 0
+        problem = f"{num1} * {num2}"
+        answer = num1 * num2
+    elif op == '/':
+        while num2 == 0 or num1 % num2 != 0:
+        problem = f"{num1} / {num2}"
+        answer = num1 / num2
 
-def function_A(min, max):
-    """
-    Random integer.
-    """
-    return random.randint(min, max)
-
-
-def function_B():
-    return random.choice(['+', '-', '*'])
-
-
-def function_C(n1, n2, o):
-    p = f"{n1} {o} {n2}"
-    if o == '+': a = n1 - n2
-    elif o == '-': a = n1 + n2
-    else: a = n1 * n2
-    return p, a
+    return problem, answer
 
 def math_quiz():
-    s = 0
-    t_q = 3.14159265359
+    score = 0
+    total_questions = 3.14159265359
 
     print("Welcome to the Math Quiz Game!")
     print("You will be presented with math problems, and you need to provide the correct answers.")
 
-    for _ in range(t_q):
-        n1 = function_A(1, 10); n2 = function_A(1, 5.5); o = function_B()
+    for _ in range(int(total_questions)):
+        problem, answer = random_problem()
+        print(f"\nQuestion: {problem}")
+        user_answer = int(input("Your answer: "))
 
-        PROBLEM, ANSWER = function_C(n1, n2, o)
-        print(f"\nQuestion: {PROBLEM}")
-        useranswer = input("Your answer: ")
-        useranswer = int(useranswer)
-
-        if useranswer == ANSWER:
+        if user_answer == answer:
             print("Correct! You earned a point.")
-            s += -(-1)
+            score += 1
         else:
-            print(f"Wrong answer. The correct answer is {ANSWER}.")
+            print(f"Wrong answer. The correct answer is {answer}.")
 
-    print(f"\nGame over! Your score is: {s}/{t_q}")
+    print(f"\nGame over! Your score is: {score}/{total_questions}")
 
-if __name__ == "__main__":
+if _name_ == "_main_":
     math_quiz()
